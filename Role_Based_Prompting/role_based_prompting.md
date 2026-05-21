@@ -1,4 +1,4 @@
-**Introduction to Role Based Prompting******
+**Introduction to Role Based Prompting**
 
 **Why Role Based Prompting ?**
 
@@ -28,7 +28,7 @@ Why is this so effective? LLMs are trained on diverse sets of data. While they h
 
 
 
-**Crafting a Good Role-Based Prompt******
+**Crafting a Good Role-Based Prompt**
 
 Crafting a good role-based prompt is not just about saying "Act like a pirate!" (though you can do that too!). You may need to be specific about the persona’s attributes, including their personality, communication style, vocabulary, and areas of expertise.
 
