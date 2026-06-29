@@ -1,0 +1,87 @@
+Method 1
+Terminal execution with  'adk run'
+  adk run allows you to interact with your agent directly from the terminal, without opening a web browser
+
+Expected behavior:
+  The terminal becomes interactive
+  Type your message, and press Enter
+  The agent responds in the terminal
+  Type another message to continue   the conversation
+  Press to exit
+
+
+When to use adk run
+  Good for:
+    Quick testing during development
+    Command-line workflows  
+    Server environments without GUI
+    Automated testing scripts
+    CI/CD pipelines
+
+
+Method 2:
+API Server with    adk api_server
+
+What it is
+  adk api_server runs your agent as a REST API service, allowing other applications to send requests to your agent over HTTP.
+
+When to use
+  Good for:
+    Integrating agents into web applications
+    Mobile app backends
+    Microservices architectures
+    Pre-production testing
+    Local API development before deploying to Cloud Run
+
+
+Method 3:
+Programmatic execution with Python
+
+What it is
+
+You can run agents directly in your Python code, giving you full programmatic control. This is useful for:
+  Building custom applications with agents
+  Jupyter notebooks/Google Colab
+  Data processing pipelines
+  Custom integrations
+
+
+When to use programmatic execution
+
+Good for:
+Jupyter notebooks and Google Colab
+Custom Python applications
+Data processing pipelines
+Research and experimentation
+Fine-grained control over execution
+
+
+Comparison: When to use each method
+
+| Method | Best for | Session persistence | Setup complexity |
+| adk web | Development, debugging, demos | Yes (in browser) | Low |
+| adk run | Quick tests, CLI workflows | No Very | low |
+| adk api_server | API integration, production | Depends on client | Low |
+| Programmatic | Custom apps, notebooks | Yes (managed) | Medium |
+
+Summary:
+
+Developing? Use  adk web
+Quick test? Use  adk run
+Building an API? Use adk api_server
+Custom integration? Use programmatic execution
+
+
+Key takeaways
+
+Choose the right tool:
+Use  adk web for visual development and debugging
+Use adk run for quick command-line testing
+Use adk api_server for deploying as an API
+Use programmatic execution for custom Python applications
+
+
+All methods work with the same agent:
+Your agent.py file doesn’t change
+Different methods are just different ways to interact
+Choose based on your current workflow needs
