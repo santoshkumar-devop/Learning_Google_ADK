@@ -1,0 +1,86 @@
+Understand the agent
+
+from google.adk.agents.llm_agent import Agent
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='root_agent',
+    description='A helpful assistant agent.',
+    instruction='You are a helpful assistant.'
+)
+
+The four core parameters
+
+1. model ( required ) - The underlying large language model (LLM) that powers your agent’s reasoning and decision-making.
+  What this does:
+    Determines your agent’s intelligence and capabilities
+    Affects cost per request and response speed
+    Different models have different strengths (speed versus capability)
+
+2. name ( required ) - A unique string identifier for your agent.
+  What this does:
+    Identifies your agent internally within ADK
+    Critical in multi-agent systems where agents refer to each other
+    Used for logging, debugging, and agent delegation
+
+  Naming conventions:
+    Use lowercase with underscores:
+    Be descriptive:
+
+Every agent needs a unique string identifier. This name is crucial for internal operations, especially in multi-agent systems, where agents need to refer
+to or delegate tasks to each other
+
+3. Description (optional, recommended for multi-agent) - A concise summary of what your agent does.
+  What this does:
+    Used by other agents to decide if they should route tasks to this agent
+    Helps in multi-agent systems where agents delegate to each other
+    Not used by the agent itself for its own behavior
+
+This description is primarily used by other LLM agents to determine if they should route a task to this agent. Make it specific enough to differentiate it from 
+peers.
+
+4. Instruction ( critical but optional ) - The behavioral blueprint that guides how your agent acts and responds.
+  What this does:
+    Defines the agent’s personality and communication style
+    Specifies the agent’s core task or goal
+    Sets boundaries and constraints on behavior
+    Guides when and how to use tools
+    Shapes the output format
+
+The instruction parameter is arguably the most critical for shaping an LlmAgent’s behavior. It tells the agent its core task or goal, its personality or persona,
+constraints on its behavior, and how and when to use its tools.
+
+  Tips for effective instructions (from ADK docs):
+
+    Be clear and specific: avoid ambiguity, clearly state the desired actions and outcomes
+    Use markdown: Improve readability for complex instructions using headings, lists, etc.
+    Provide examples (few-shot): For complex tasks or specific output formats, include examples
+    Guide tool use: don’t just list tools, explain when and why the agent should use them
+
+
+| Parameter | Audience | Purpose | Example |
+| description | Other agents | “Should I route this task here?” | “Handles billing inquiries” |
+| instruction | This agent | “How should I behave?” | “You are a billing expert who…” |
+
+
+Why root_agent?
+
+ADK command-line tools look for a Python variable named root_agent as the entry point to your agent system. 
+This is a convention that allows ADK to discover and run your agent.
+
+
+From ADK docs:
+
+“The agent.py file contains a root_agent definition, which is the only required element of an ADK agent.”
+
+
+Example Agent
+
+from google.adk.agents.llm_agent import Agent
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='math_tutor_agent',
+    description='Helps students learn algebra by guiding them through problemsolving steps.',
+    instruction='You are a patient math tutor. Help students with algebra problems.'
+)
+
+
