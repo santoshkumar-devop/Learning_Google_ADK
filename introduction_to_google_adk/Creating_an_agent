@@ -1,0 +1,37 @@
+1. Install Python 3.11 or higher
+2. Create Virtual Environment
+  a. python3 -m venv .venv
+  b. source .venv/bin/activate
+3. install google adk
+   a. pip install google-adk
+4. For Accessing the LLM there are 2 ways
+   a. Gemini API via Google AI Studio - Get the API Key from Google AI Studio
+       1. Visit Google AI Studio
+       2. Sign in with your Google account
+       3. Click Create API Key
+       4. Copy the API key (it looks like )
+   b. Gemini via Google Cloud Vertex AI ( Production ) 
+       1. Create a Google Cloud project if you don’t have one
+       2. Enable the Vertex AI API
+       3. Install the gcloud CLI
+       4. Authenticate
+            gcloud auth application-default login
+       5. Note your Project ID (visible in Cloud Console)
+       6. Note your Location (for example, us-central1)
+5. Create an Agent
+    a. adk create my_first_agent
+6. Configure the API Key
+
+Agent = model + tools + orchestration.
+
+Example Agent
+
+from google.adk.agents.llm_agent import Agent
+root_agent = Agent(
+        model=’gemini-2.5-flash’, # Model: The reasoning engine (Course 1!)
+        name=’root_agent’, # Identity: Required identifier
+        description=’A helpful agent.’, # Purpose: What this agent does
+        instruction=’You are helpful.’ # Behavior: How to act
+        # Tools: You’ll add these in Module 3
+        # Orchestration: Handled automatically by the Agent class
+)
