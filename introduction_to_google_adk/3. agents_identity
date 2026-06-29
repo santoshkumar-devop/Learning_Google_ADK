@@ -84,3 +84,6 @@ root_agent = Agent(
 )
 
 
+agent.py: Contains your agent's primary Python code, defining its name, the LLM it uses, and core instructions.
+__init__.py: Marks the directory as a Python package, helping ADK discover and load your agent definition.
+.env: Stores sensitive information and configuration variables like API key, Project ID, and location
