@@ -1,0 +1,50 @@
+1. Method 1: Python code
+    Created with: adk create my_agent
+
+Generates
+    my_agent/
+ ├── agent.py      # Python code defining your agent
+ ├── __init__.py
+ └── .env
+
+ agent.py:
+
+from google.adk.agents.llm_agent import Agent
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='assistant_agent',
+    description='A helpful assistant',
+    instruction='You are a helpful assistant.'
+)
+
+
+2. Method 2: YAML configuration
+   Created with: adk create --type=config my_agent
+
+   Notice --type=config my_agent  the flag. This tells ADK   to create a YAML based agent instead of the default Python code based agent
+
+   Generates
+   my_agent/
+ ├── root_agent.yaml   # YAML
+ configuration file
+ └── .env
+
+ root_agent.yaml
+
+name: assistant_agent
+model: gemini-2.5-flash
+description: A helpful assistant
+instruction: You are a helpful assistant.
+
+The ADK Agent Config feature lets you build an ADK workflow without writing   code. An Agent Config uses a YAML format text file with a brief description of the agent
+
+
+YAML versus Python: When to use each
+
+| Aspect | YAML config | Python code |
+| Ease of editing |  Very easy (text file) | Requires coding knowledge |
+| Best for | Simple agents, quick prototypes | Complex agents, custom logic |
+| Version control | Clean differences | Code changes |
+| Flexibility | Limited to config options | Full programmatic control |
+| Non-programmers | Can edit | Need coding skills |
+| Advanced features | Coming soon | Full access |
